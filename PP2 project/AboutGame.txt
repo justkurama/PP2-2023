@@ -1,0 +1,5 @@
+Какую игру я хочу сделать? Варианты:
+1. Flappy bird with different texture
+2. Meteor shooter 
+3. Tic Tac Toe
+4.  ... 
