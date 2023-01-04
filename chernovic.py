@@ -12,8 +12,3 @@ while run :
         if i.type == pygame.QUIT:
             pygame.quit()
             run = False
-        elif i.type == pygame.KEYDOWN:   
-            if i.key == pygame.K_r:
-                screen.fill((74, 255, 77))
-
-    
