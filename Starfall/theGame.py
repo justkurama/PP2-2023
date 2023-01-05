@@ -22,10 +22,11 @@ walk_left = [
     pg.image.load('Starfall/images/player/player_left3.png'),
     pg.image.load('Starfall/images/player/player_left4.png'),
 ]
+
 player_anim_cnt = 0
 player_speed = 10
 player_x = 350
-movement = False
+
 while True:
     fps.tick(15)
     screen.blit(bg, (0, 0))
