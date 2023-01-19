@@ -354,6 +354,7 @@ while run:
 
         if lives <= 0:
             gameover = True
+            rapidFire = False
 
         if rfStart != -1:
             if count - rfStart > 500:
