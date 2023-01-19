@@ -1,4 +1,4 @@
-import pygame as pg
+import pygame as pg, sys, random
 pg.init()
 
 screenh = 728
@@ -30,6 +30,10 @@ run = True
 
 while run:
     clock.tick(60)
-
+    pg.display.update()
+    for i in pg.event.get():
+        if i.type == pg.QUIT:
+            pg.quit()
+            run = False
 
 
