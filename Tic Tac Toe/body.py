@@ -6,7 +6,7 @@ pygame.display.set_caption("Tic Tac Toe")
 board = pygame.Surface((440, 440))
 board.fill((161, 104, 53))
 
-fence = pygame.image.load('PP2 project/Images/fence.png')
+fence = pygame.image.load('Tic Tac Toe/Images/fence.png')
 
 running = True
 while running :
