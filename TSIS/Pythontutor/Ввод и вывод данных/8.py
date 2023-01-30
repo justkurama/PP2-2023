@@ -1,7 +1,6 @@
 #Шнурки
-from math import *
 a = int(input())
 b = int(input())
 l = int(input())
 N = int(input())
-print(a + (N-1)*sqrt(a*a + b*b) + l)
+print(b*(N-1)*2 +a*(2*N-1) + l*2)
