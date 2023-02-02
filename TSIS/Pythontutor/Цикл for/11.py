@@ -1,6 +1,6 @@
 #Потерянная карточка
 n = int(input())
-sum1= sum2 = 0
+sum1 = sum2 = 0
 for i in range(n-1):
     a = int(input())
     sum1 += a
