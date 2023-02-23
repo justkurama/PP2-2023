@@ -1,9 +1,11 @@
 mylist = []
 run = True
 while run:
-    x = input("\"end\" to quit")
-    if x.isdigit():
+    x = input()
+    try:
+        int(x)
         mylist.append(x)
+    except: NameError
     if x == ("end"):
         run = False
         break
