@@ -1,13 +1,16 @@
-mylist = []
-run = True
-while run:
-    x = input()
-    try:
-        int(x)
-        mylist.append(x)
-    except: NameError
-    if x == ("end"):
-        run = False
-        break
-mylist.sort()
-print(mylist)
+class MyNumbers:
+  def __iter__(self):
+    self.a = 1
+    return self
+
+  def __next__(self):
+    x = self.a
+    self.a += 1
+    return x
+
+myclass = MyNumbers()
+myiter = iter(myclass)
+next(myiter)
+print(next(myiter))
+print(next(myiter))
+print(next(myiter))
