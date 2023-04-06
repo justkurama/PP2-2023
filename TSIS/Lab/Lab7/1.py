@@ -1,57 +1,40 @@
-import pygame as pg
 import time
 import datetime
-import math
+import pygame
 
-pg.init()
-RES = WIDTH ,HEIGHT = 800,800
-midle = WIDTH//2 , HEIGHT//2
-RADIUS = 800
+pygame.init()
 
-screen = pg.display.set_mode((RES))
-clock = pg.time.Clock()
+W, H = 800, 800
+x = W//2
+y = H//2
+WHITE = (255, 255, 255)
+sc = pygame.display.set_mode((W, H))
 
-pg.display.set_caption("Mickey Clock")
-
-sec = pg.image.load("c:/pp2/TSIS/Lab/Lab7/images/left-hand.png").convert_alpha()
-minute = pg.image.load("c:/pp2/TSIS/Lab/Lab7/images/right-hand.png").convert_alpha()
-rectsec = sec.get_rect()
-rectmin = minute.get_rect()
-rectmin.center = rectmin.center = midle
-
-background = pg.image.load("c:/pp2/TSIS/Lab/Lab7/images/main-clock.png")
-run =True
-
-angle1 = 0
-angle2 = 0
-while run:
-    for event in pg.event.get():
-        if event.type == pg.QUIT:
-            run = False
-    #system time
+mickey = pygame.image.load("c:/pp2/TSIS/Lab/Lab7/images/main-clock.png")
+leftHand = pygame.image.load("c:/pp2/TSIS/Lab/Lab7/images/left-hand.png").convert_alpha()
+rightHand = pygame.image.load("c:/pp2/TSIS/Lab/Lab7/images/right-hand.png").convert_alpha()
+mickeyRect = mickey.get_rect()
+def blitRotateCenter(surf, image, center, angle):
+    rotated_image = pygame.transform.rotate(image, angle)
+    new_rect = rotated_image.get_rect(center = image.get_rect(center = center).center)
+    surf.blit(rotated_image, new_rect)
+time = datetime.datetime.now()
+minangle = 0
+secangle = 0
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            exit()
     time = datetime.datetime.now()
     minuteTime = time.minute
     secondTime = time.second
+    minangle = -(minuteTime*6)
+    secangle = -(secondTime*6)
 
-    #minute
-    angle1 = -minuteTime*6 #6 is degree
-    leg1 = pg.transform.rotate(minute, angle1)
-    rect1 = leg1.get_rect()
-    rect1.center = rectmin.center
-
-    #second
-    angle2 = -secondTime*6 #6 is degree
-    leg2 = pg.transform.rotate(sec, angle2)
-    rect2 = leg2.get_rect()
-    rect2.center = rectsec.center
-
-    #output
-    screen.blit(background, (0, 0))
-    screen.blit(leg1, rect1)
-    screen.blit(leg2, rect2)
-
-
-    #screen.blit(background, (0, 0))
-    #pg.draw.circle(screen, (0, 0, 0), (500, 500), 490, 5)
-    pg.display.flip()
-    clock.tick(60)
+    sc.fill(WHITE)
+    sc.blit(mickey, (x, y))
+    sc.blit(mickey, mickeyRect)
+    
+    blitRotateCenter(sc, leftHand, (x,y), secangle) 
+    blitRotateCenter(sc, rightHand, (x,y), minangle)
+    pygame.display.update()
