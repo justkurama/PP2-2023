@@ -1,16 +1,5 @@
-class MyNumbers:
-  def __iter__(self):
-    self.a = 1
-    return self
-
-  def __next__(self):
-    x = self.a
-    self.a += 1
-    return x
-
-myclass = MyNumbers()
-myiter = iter(myclass)
-next(myiter)
-print(next(myiter))
-print(next(myiter))
-print(next(myiter))
+a = [int(i) for i in input().split()]
+for i in range(1, len(a)):
+    if a[i - 1] > 0 and a[i] > 0:
+        print(a[i - 1], a[i])
+        break
