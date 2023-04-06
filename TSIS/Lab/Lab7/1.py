@@ -28,8 +28,8 @@ while True:
     time = datetime.datetime.now()
     minuteTime = time.minute
     secondTime = time.second
-    minangle = -(minuteTime*6)
-    secangle = -(secondTime*6)
+    minangle = -(minuteTime-15)*6
+    secangle = -(secondTime-15)*6
 
     sc.fill(WHITE)
     sc.blit(mickey, (x, y))
