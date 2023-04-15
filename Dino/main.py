@@ -199,7 +199,7 @@ def main():
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 run = False
-                sys.exit()
+                
 
         SCREEN.fill((255, 255, 255))
         userInput = pg.key.get_pressed()
